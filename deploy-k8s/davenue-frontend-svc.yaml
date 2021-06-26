@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-demo
+  namespace: digitalavenue-dev
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 3000
+  selector:
+    app: nodejs-demo
+# spec:
+#   type: ClusterIP
+#   selector:
+#     app: nodejs-demo
+#   ports:
+#     - port: 443
+#       targetPort: 3001

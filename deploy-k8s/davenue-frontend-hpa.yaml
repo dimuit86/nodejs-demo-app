@@ -1,0 +1,13 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: nodejs-demo-hpa
+  namespace: digitalavenue-dev
+spec:
+  maxReplicas: 2 # define max replica count
+  minReplicas: 1  # define min replica count
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: nodejs-demo
+  targetCPUUtilizationPercentage: 70 # target CPU utilization
